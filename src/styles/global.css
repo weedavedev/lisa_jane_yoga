@@ -12,7 +12,7 @@
 }
 
 * {
-    font-size: 18px;
+    font-size: 22px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -22,7 +22,7 @@ body {
     width: 100%;
     padding: 0 15px;
     align-content: center;
-    height: 100vh;
+    /*height: 100vh;*/
     background-color: #f0f0f0;
 }
 
@@ -30,6 +30,7 @@ body {
     flex: 1; /* Grow to fill available space */
     display: flex; /* Use flexbox for the main section too */
     flex-direction: column; /* Set direction to column */
+    margin: 0 auto;
 }
 
 a {
@@ -45,28 +46,29 @@ p, h1, h2, h4 {
 }
 
 h1 {
-    @apply text-4xl;
+    @apply text-4xl font-light;
 }
 
 h2 {
-
-    font-size: 2.5em;
-    font-weight: 400;
+    @apply text-3xl font-light;
 }
-
+h3 {
+    @apply text-2xl font-medium;
+}
 h4 {
-    font-size: 2em;
-    font-weight: 300;
+    @apply text-2xl font-medium;
 }
 
 p {
-    font-size: 1em;
-    font-weight: 350;
+    @apply text-base font-light;
 }
 
 .social_container {
     padding-top: 15px;
     /*height:20vh;*/
+    display: flex;               /* Set to flexbox */
+    flex-direction: row;      /* Stacking items vertically */
+
 }
 
 img.socials {
@@ -79,7 +81,7 @@ img.socials:hover {
     transform: translateY(-5px); /* Lift the box up slightly on hover */
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     body {
         width: 100%;
         padding: 0 5px;
