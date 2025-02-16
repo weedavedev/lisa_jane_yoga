@@ -9,10 +9,10 @@
     <ImageGrid
             images={contactusinfo_images}
             title="Certificates and partnership."
-            columns={3}
-            gap="1rem"
-            padding="1rem"
+            columns={4}
+            gap="0.5rem"
+            padding="0.5rem"
             maxWidth="750px"
-            classes="w-10 h-10"
+            classes="social-icons"
     />
 </div>

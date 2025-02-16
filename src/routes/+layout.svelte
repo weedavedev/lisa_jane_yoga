@@ -23,6 +23,7 @@
             window.removeEventListener('resize', checkScreenSize);
         };
     });
+
 </script>
 
 <style>
