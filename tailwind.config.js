@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        space: '#48b95f',
+        space: '#48b93f',
       }
     },
   },

@@ -1,6 +1,6 @@
 <script>
     // import {mediaSource} from '$lib/constants';
-    import '../styles/global.css';
+    import '../lib/styles/global.css';
     import {onMount} from 'svelte';
 
     // let backgroundImage = `${mediaSource}/lisa_background_cropped.jpg`;
