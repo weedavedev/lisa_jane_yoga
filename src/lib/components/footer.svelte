@@ -1,0 +1,1 @@
+ <p>Get in touch to discuss how I can help you/your group explore the joy of moving with the body and deepening the connection to the self</p>

@@ -1,42 +1,46 @@
+/* 1. Imports and Tailwind */
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-.karla {
-    font-family: "Karla", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
+/* 2. CSS Variables */
+:root {
+    --min-content-width: 365px;
+    --body-padding: 15px;
+    --content-gap: 1rem;
+    --blur-effect: 5px;
+    --primary-green: rgb(60, 107, 59);
+    --white-overlay: rgba(255, 255, 255, 0.82);
+    --green-overlay: rgba(76, 133, 75, 0.53);
 }
 
+/* 3. Base Styles */
 * {
-    font-size: 22px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
+    font-size: 22px; /* Move from * selector to body */
     width: 100%;
-    padding: 0 15px;
+    padding: 0 var(--body-padding);
     align-content: center;
-    /*height: 100vh;*/
     background-color: #f0f0f0;
-}
-
-.main {
-    flex: 1; /* Grow to fill available space */
-    display: flex; /* Use flexbox for the main section too */
-    flex-direction: column; /* Set direction to column */
-    margin: 0 auto;
 }
 
 a {
     text-decoration: none;
 }
 
+/* 4. Typography */
+.karla {
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
 
 p, h1, h2, h4 {
     font-family: "Karla", sans-serif;
@@ -45,106 +49,157 @@ p, h1, h2, h4 {
     font-weight: 600;
 }
 
-h1 {
-    @apply text-4xl font-light;
+h1 { @apply text-4xl font-light; }
+h2 { @apply text-3xl font-light; }
+h3 { @apply text-2xl font-medium; }
+h4 { @apply text-2xl font-medium; }
+p { @apply text-base font-light; }
+
+/* 5. Layout Components */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100vw;
+    max-height: 100vh;
+    align-content: center;
 }
 
-h2 {
-    @apply text-3xl font-light;
-}
-h3 {
-    @apply text-2xl font-medium;
-}
-h4 {
-    @apply text-2xl font-medium;
-}
-
-p {
-    @apply text-base font-light;
+.background_image {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
-.social_container {
-    padding-top: 15px;
-    /*height:20vh;*/
-    display: flex;               /* Set to flexbox */
-    flex-direction: row;      /* Stacking items vertically */
+.holding_page_content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
 }
 
+/* 6. Content Layout */
+.main_page_content {
+    flex: 1;
+    min-width: var(--min-content-width);
+    max-width: 50%;
+    min-height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--content-gap);
+    margin: auto auto;
+    padding: 0; /* Remove the padding we added */
+}
+.content_header {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.5rem; /* Reduce padding */
+    @apply rounded-b-lg;
+}
+
+.content_box {
+    width: fit-content; /* Change back to fit-content */
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem; /* Adjust padding */
+    @apply rounded-lg;
+}
+
+.content_footer {
+    width: fit-content; /* Change back to fit-content */
+    margin: 0 auto;
+    padding: 0.5rem 1rem; /* Adjust padding */
+    @apply rounded-t-lg;
+}
+/* 7. Theme Classes */
+.gonw {
+    background-color: var(--white-overlay);
+    color: var(--primary-green);
+    backdrop-filter: blur(var(--blur-effect));
+}
+
+.wong {
+    background-color: var(--green-overlay);
+    color: white;
+    backdrop-filter: blur(var(--blur-effect));
+}
+
+/* 8. Utility Classes */
+.full {
+    width: 100%;
+}
+
+.about_me_text {
+    overflow-y: auto;
+    padding: 0.5rem;
+    max-height: 60vh;
+}
+
+/* 9. Media Queries */
 @media (max-width: 768px) {
     body {
         width: 100%;
         padding: 0 5px;
     }
-}
 
-.main_page_content {
-    height: 100vh;
-    flex: 1; /* Each column takes equal space */
-    min-width: 365px; /* Minimum column width */
-    max-width: 50%;
-    max-height: 100%;
-
-    @apply text-center;
-    display: flex; /* Set to flexbox */
-    flex-direction: column; /* Stacking items vertically */
-}
-
-.main_page_content > .centered {
-    margin: 10vh auto;
-}
-
-.main_page_content ul, .main_page_content p {
-    margin-bottom: 10%;
-}
-
-.gonw {
-    background-color: rgba(255, 255, 255, 0.82);
-    color: rgb(60, 107, 59);
-}
-
-.wong {
-    background-color: rgba(76, 133, 75, 0.53);
-    color: rgba(255, 255, 255);
-}
-
-.full {
-    width: 100%;
-}
-
-.tall {
-    flex-grow: 1
-}
-
-.content_header {
-    @apply flex justify-center items-center;
-    top: 0; /* Stick to the top of the column */
-    padding: 5px 0;
-    height: 10vh; /* Space between boxes */
-    /*flex-grow: 1;*/
-}
-
-.box {
-    padding: 1% 3%;
-    @apply rounded-md;
-}
-
-.about_me_text {
-    flex-grow: 1;
-    height: 80vh;
-    overflow: auto; /* Enable scrolling */
-}
-
-.content_footer {
-    /* Space between boxes */
-    bottom: 0;
-    height: 10vh;
-    width: 100%;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
     .main_page_content {
-        max-width: 100%; /* Stack columns full width on small screens */
+        max-width: 100%;
+        /*padding:1rem;*/
+    }
+
+    .holding_page_content {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .social_container {
+        flex-wrap: wrap;
+    }
+
+    .content_box, .content_header, .content_footer {
+        /*max-width: 100%;*/
     }
 }
 
+@media (min-width: 1024px) {
+    .main_page_content {
+        max-width: 768px;
+    }
+}
+
+/* 10. Pimp my scrollbar */
+/* Add this to your global.css */
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;  /* thinner width */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);  /* subtle track */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-green);  /* using your green color */
+    opacity: 0.7;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(60, 107, 59, 0.8);  /* slightly darker on hover */
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-green) rgba(255, 255, 255, 0.1);
+}

@@ -4,11 +4,12 @@
     import ImageGrid from "$lib/components/ImageGrid.svelte";
 </script>
 
-<h3>More info / connect via</h3>
+<!--/** Title set in gallery parameters */-->
+
 <div class="social_container">
     <ImageGrid
             images={contactusinfo_images}
-            title="Certificates and partnership."
+            title="More info / connect via"
             columns={4}
             gap="0.5rem"
             padding="0.5rem"
