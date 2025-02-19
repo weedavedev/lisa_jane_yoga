@@ -3,6 +3,7 @@
     import '../lib/styles/global.css';
     import {onMount} from 'svelte';
 
+    import MobileNavigation from '$lib/components/mobileNavigation.svelte';
     // let backgroundImage = `${mediaSource}/lisa_background_cropped.jpg`;
     // let backgroundImageMobile = `${mediaSource}/lisa_background_mobile.jpg`;
     //console.log(backgroundImage)
@@ -31,5 +32,7 @@
     <div class="holding_page_content ">
         <slot/>
     </div>
+
+    <MobileNavigation />
     <!--    <Footer/>   -->
 </div>

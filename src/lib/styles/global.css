@@ -23,7 +23,7 @@
 }
 
 body {
-    font-size: 22px; /* Move from * selector to body */
+    font-size: 22px;
     width: 100%;
     padding: 0 var(--body-padding);
     align-content: center;
@@ -96,20 +96,21 @@ p { @apply text-base font-light; }
     flex-direction: column;
     justify-content: space-between;
     gap: var(--content-gap);
-    margin: auto auto;
+    margin: 0 auto;
     padding: 0; /* Remove the padding we added */
 }
+
 .content_header {
     width: 100%;
     margin: 0 auto;
-    padding: 0.5rem; /* Reduce padding */
+    /*padding: 0.5rem; !* Reduce padding *!*/
     @apply rounded-b-lg;
 }
 
 .content_box {
     width: fit-content; /* Change back to fit-content */
     margin: 0 auto;
-    padding: 0.75rem 1.5rem; /* Adjust padding */
+    padding: 0.2rem .6rem; /* Adjust padding */
     @apply rounded-lg;
 }
 
@@ -119,7 +120,21 @@ p { @apply text-base font-light; }
     padding: 0.5rem 1rem; /* Adjust padding */
     @apply rounded-t-lg;
 }
-/* 7. Theme Classes */
+
+/* 7. Theme Classes + sizing options */
+.about_me_text {
+    overflow-y: auto;
+    max-height: 65vh;
+
+    ul {
+        @apply space-y-2;
+    }
+
+    li {
+        @apply text-lg font-normal leading-snug;
+    }
+}
+
 .gonw {
     background-color: var(--white-overlay);
     color: var(--primary-green);
@@ -137,11 +152,6 @@ p { @apply text-base font-light; }
     width: 100%;
 }
 
-.about_me_text {
-    overflow-y: auto;
-    padding: 0.5rem;
-    max-height: 60vh;
-}
 
 /* 9. Media Queries */
 @media (max-width: 768px) {
@@ -164,8 +174,11 @@ p { @apply text-base font-light; }
         flex-wrap: wrap;
     }
 
-    .content_box, .content_header, .content_footer {
-        /*max-width: 100%;*/
+}
+@media (max-width: 768px) {
+    .holding_page_content {
+        flex-direction: column;
+        height: auto;  /* This allows content to extend beyond viewport */
     }
 }
 
@@ -176,7 +189,6 @@ p { @apply text-base font-light; }
 }
 
 /* 10. Pimp my scrollbar */
-/* Add this to your global.css */
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {

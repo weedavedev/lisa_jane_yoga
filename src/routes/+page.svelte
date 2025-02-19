@@ -5,7 +5,7 @@
     import MainContent from '$lib/components/content/main_content.svelte';
 </script>
 
-<div class="main_page_content left top">
+<div class="main_page_content left top" id="top">
     <div class="content_header gonw full">
         <h1>Lisa Jane Yoga</h1>
     </div>
@@ -20,7 +20,7 @@
 </div>
 
 
-<div class="main_page_content right bottom">
+<div class="main_page_content right bottom" id="bottom">
     <div class="content_header full gonw">
         <h1>About me</h1>
     </div>
