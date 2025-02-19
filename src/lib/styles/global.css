@@ -28,6 +28,8 @@ body {
     padding: 0 var(--body-padding);
     align-content: center;
     background-color: #f0f0f0;
+    margin: 0;
+    min-height: 100vh;
 }
 
 a {
@@ -57,15 +59,16 @@ p { @apply text-base font-light; }
 
 /* 5. Layout Components */
 .main {
-    flex: 1;
+    width: 100vw;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding: 0;
     margin: 0 auto;
-    width: 100vw;
-    max-height: 100vh;
     align-content: center;
 }
 
+/*5-6 Background image settings, change on mobile */
 .background_image {
     background-size: cover;
     background-position: center;
@@ -83,27 +86,16 @@ p { @apply text-base font-light; }
     }
 }
 
-.holding_page_content {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-    height: 100vh;
-    width: 100%;
-}
-
 /* 6. Content Layout */
 .main_page_content {
     flex: 1;
     min-width: var(--min-content-width);
-    max-width: 50%;
-    min-height: 100vh;
-    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: var(--content-gap);
-    margin: 0 auto;
-    padding: 0; /* Remove the padding we added */
+    text-align: center;
+    padding: 0;
 }
 
 .content_header {
@@ -130,7 +122,7 @@ p { @apply text-base font-light; }
 /* 7. Theme Classes + sizing options */
 .about_me_text {
     overflow-y: auto;
-    max-height: 65vh;
+    height:auto;
 
     ul {
         @apply space-y-2;
@@ -159,39 +151,94 @@ p { @apply text-base font-light; }
 }
 
 
-/* 9. Media Queries */
-@media (max-width: 768px) {
+/* Desktop Layout (> 768px) */
+@media (min-width: 769px) {
     body {
-        width: 100%;
-        padding: 0 5px;
+        overflow: hidden; /* Prevent scrolling on desktop */
+        height: 100vh;
+    }
+
+    .main {
+        flex-direction: row;
+        align-items: stretch;
+        height:100vh;
+        overflow: hidden;
     }
 
     .main_page_content {
-        max-width: 100%;
-        /*padding:1rem;*/
+        width: 50%;
+        height:100vh;
+        overflow: hidden;
     }
 
-    .holding_page_content {
-        flex-direction: column;
-        height: auto;
+    .about_me_text {
+        max-height: 60vh; /* Constrain height for desktop view */
+        overflow-y: auto; /* Allow scrolling within this container only */
     }
-
-    .social_container {
-        flex-wrap: wrap;
-    }
-
 }
+
+/* Mobile Layout (≤ 768px) */
 @media (max-width: 768px) {
-    .holding_page_content {
+    html, body {
+        height: auto;
+        overflow-y: auto;
+    }
+
+    .main {
+        min-height: auto;
+        height: 200%;
         flex-direction: column;
-        height: auto;  /* This allows content to extend beyond viewport */
+        overflow-y: auto;
+        overflow:visible;
+    }
+
+    .main_page_content {
+        position: relative;
+        min-height: 100vh;
+        height: 50%;
+        width: 100%;
+        flex: 0 0 auto;  /* Don't allow flex to control size */
+    }
+
+    .content_box,
+    .content_header,
+    .content_footer {
+        width: 100%;
+        height: auto;
+        min-height: fit-content;
+    }
+
+    .about_me_text {
+        height: auto;
+        overflow-y: visible;
+        max-height: none;
+    }
+
+    .full {
+        height: auto;
+        min-height: fit-content;
+    }
+
+    .tall {
+        height: auto;
+        min-height: fit-content;
     }
 }
 
+/* Large Desktop Refinements */
 @media (min-width: 1024px) {
-    .main_page_content {
-        max-width: 768px;
+    .main {
+        max-width: 1536px;
+        margin: 0 auto;
     }
+}
+
+
+/* Content Box Styles */
+.content_box.tall {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 /* 10. Pimp my scrollbar */

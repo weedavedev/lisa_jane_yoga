@@ -4,8 +4,7 @@
 </script>
 
 <div class="main background_image">
-    <div class="holding_page_content">
-        <slot/>
-    </div>
-    <MobileNavigation />
+    <slot/>
+
+    <MobileNavigation/>
 </div>
