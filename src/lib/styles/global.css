@@ -78,13 +78,15 @@ p { @apply text-base font-light; }
     top: 0;
     left: 0;
     z-index: -1;
-    /*background-image: url('/media/lisa_background_cropped.jpg');*/
+    background-image: url('/media/lisa_background_cropped.jpg');
 }
+
 @media (max-width: 768px) {
     .background_image {
-        /*background-image: url('/media/lisa_background_mobile.jpg');*/
+        background-image: url('/media/lisa_background_mobile.jpg');
     }
 }
+
 .scroll-indicator {
     position: fixed;
     right: 1rem;
