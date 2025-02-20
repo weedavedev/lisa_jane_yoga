@@ -115,7 +115,7 @@
 	</button>
 
 	{#if submitStatus === 'success'}
-		<div class="success p-4 bg-green-100 text-green-700 rounded-md">Thank you for your message! We'll get back to you soon.</div>
+		<div class="success p-4 bg-green-100 text-green-700 rounded-md">Thank you for your message! I'll get back to you soon.</div>
 	{:else if submitStatus === 'error'}
 		<div class="error p-4 bg-red-100 text-red-700 rounded-md">Sorry, there was an error sending your message. Please try again.</div>
 	{/if}
