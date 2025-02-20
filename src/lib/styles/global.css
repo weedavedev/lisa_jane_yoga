@@ -85,7 +85,40 @@ p { @apply text-base font-light; }
         /*background-image: url('/media/lisa_background_mobile.jpg');*/
     }
 }
+.scroll-indicator {
+    position: fixed;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 50;
+}
 
+.indicator-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.indicator-dot.active {
+    background: var(--primary-green);
+    transform: scale(1.2);
+}
+
+/* Hide scroll behaviors on desktop */
+@media (min-width: 769px) {
+    .scroll-indicator {
+        display: none;
+    }
+
+    div[style*="transform"] {
+        transform: none !important;
+    }
+}
 /* 6. Content Layout */
 .main_page_content {
     flex: 1;
@@ -150,54 +183,28 @@ p { @apply text-base font-light; }
     width: 100%;
 }
 
-
-/* Desktop Layout (> 768px) */
-@media (min-width: 769px) {
-    body {
-        overflow: hidden; /* Prevent scrolling on desktop */
-        height: 100vh;
-    }
-
-    .main {
-        flex-direction: row;
-        align-items: stretch;
-        height:100vh;
-        overflow: hidden;
-    }
-
-    .main_page_content {
-        width: 50%;
-        height:100vh;
-        overflow: hidden;
-    }
-
-    .about_me_text {
-        max-height: 60vh; /* Constrain height for desktop view */
-        overflow-y: auto; /* Allow scrolling within this container only */
-    }
-}
-
 /* Mobile Layout (≤ 768px) */
 @media (max-width: 768px) {
     html, body {
         height: auto;
-        overflow-y: auto;
+        overflow-y: auto; /* Enable vertical scrolling */
     }
 
     .main {
-        min-height: auto;
-        height: 200%;
-        flex-direction: column;
-        overflow-y: auto;
-        overflow:visible;
+        min-height: 100vh;
+        height: auto;
+        overflow: visible;
     }
 
     .main_page_content {
-        position: relative;
-        min-height: 100vh;
-        height: 50%;
         width: 100%;
-        flex: 0 0 auto;  /* Don't allow flex to control size */
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .background_image {
+        position: fixed;
+        min-height: 100%;
     }
 
     .content_box,
@@ -205,7 +212,13 @@ p { @apply text-base font-light; }
     .content_footer {
         width: 100%;
         height: auto;
-        min-height: fit-content;
+    }
+    div.content_footer {
+        padding: 0;
+    }
+
+    #bottom > div.content_footer.full.gonw > p{
+        font-size: 0.75rem;
     }
 
     .about_me_text {
@@ -213,15 +226,25 @@ p { @apply text-base font-light; }
         overflow-y: visible;
         max-height: none;
     }
+}
 
-    .full {
-        height: auto;
-        min-height: fit-content;
+/* Desktop Layout (> 768px) */
+@media (min-width: 769px) {
+    .main {
+        flex-direction: row;
+        align-items: stretch;
+        height: 100vh;
     }
 
-    .tall {
-        height: auto;
-        min-height: fit-content;
+    .main_page_content {
+        width: 50%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .about_me_text {
+        max-height: 60vh;
+        overflow-y: auto;
     }
 }
 

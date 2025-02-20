@@ -1,10 +1,5 @@
 <script>
-    import '../lib/styles/global.css';
-    import MobileNavigation from '$lib/components/mobileNavigation.svelte';
+    import '$lib/styles/global.css';
 </script>
 
-<div class="main background_image">
-    <slot/>
-
-    <MobileNavigation/>
-</div>
+<slot/>
