@@ -36,3 +36,12 @@
 .image-wrapper {
     @apply w-full h-full relative;
 }
+
+.image-container {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.image-container:hover {
+    transform: translateY(-3px);
+}

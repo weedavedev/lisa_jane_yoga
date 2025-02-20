@@ -1,8 +1,9 @@
+
 export const contactusinfo_images = [
 	{
 		src: '/media/logos/email.png',
-		alt: 'hello@lisajaneyoga.eu',
-		link: 'hello@lisajaneyoga.eu'
+		alt: 'Contact Us',
+		isContactForm: true  // Special flag for contact form trigger
 	},
 	{
 		src: '/media/logos/facebook.png',
