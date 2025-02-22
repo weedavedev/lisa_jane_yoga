@@ -93,7 +93,7 @@
                 <h1>About me</h1>
             </div>
 
-            <div class="content_box full tall wong">
+            <div class="content_box full wong">
                 <div class="about_me_text">
                     <MainContent/>
                 </div>

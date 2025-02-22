@@ -2,7 +2,7 @@ export const contactusinfo_images = [
 	{
 		src: '/media/logos/email.png',
 		alt: 'hello@lisajaneyoga.eu',
-		link: 'hello@lisajaneyoga.eu'
+		link: ''
 	},
 	{
 		src: '/media/logos/facebook.png',
