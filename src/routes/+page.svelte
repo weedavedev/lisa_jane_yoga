@@ -59,6 +59,8 @@
 <svelte:window bind:innerHeight={windowHeight}/>
 
 <div class="main background_image"
+     role="region"
+     aria-label="Page content"
      on:touchstart={handleTouchStart}
      on:touchmove={handleTouchMove}
      on:touchend={handleTouchEnd}
