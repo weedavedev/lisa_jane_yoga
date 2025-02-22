@@ -74,7 +74,6 @@ p { @apply text-base font-light; }
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -1;
     background-image: url('/media/lisa_background_cropped.jpg');
 }
 
