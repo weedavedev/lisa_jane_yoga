@@ -28,7 +28,7 @@ jobs:
 
       - name: build
         env:
-          BASE_PATH: '/lisa_jane_yoga'
+          BASE_PATH: ''
         run: |
           npm run build
 
