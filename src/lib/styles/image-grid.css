@@ -14,10 +14,6 @@
     aspect-ratio: 1/1;
 }
 
-.image-grid {
-    @apply grid gap-4 p-4;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
 .image-container {
     @apply w-full overflow-hidden aspect-square;
 }
@@ -40,6 +36,7 @@
 .image-container {
     cursor: pointer;
     transition: transform 0.2s ease;
+    height:110%;
 }
 
 .image-container:hover {
